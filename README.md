@@ -1,3 +1,3 @@
-# MediLab
+# Jetstream Laravel starter kit
 
-An application to manage medical labs
+Start kit for laravel and jetstream
