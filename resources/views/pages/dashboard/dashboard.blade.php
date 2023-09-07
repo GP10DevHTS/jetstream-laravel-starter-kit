@@ -79,7 +79,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $patients }}
+                    4232
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -101,7 +101,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $lab_services }}
+                    433
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -124,7 +124,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $test_results }}
+                    343
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -145,7 +145,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $total_income->sum('payment_amount') }}
+                    443
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -171,7 +171,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $patients }}
+                    434
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -193,7 +193,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $lab_services }}
+                    343
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -216,7 +216,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $test_results }}
+                    454
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -237,7 +237,7 @@
                 </x-slot:content>
 
                 <x-slot:counter>
-                    {{ $total_income->sum('payment_amount') }}
+                    4545
                 </x-slot:counter>
             </x-app.dashboard-card>
 
@@ -246,43 +246,33 @@
         <!-- Dashboard actions -->
         <div class="justify-center mt-8 md:flex min-w-max">
             <div class="grid gap-6 mb-8 md:grid-cols-3">
+
                 <!-- Lines chart -->
                 <div class="h-64 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                     <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        {{ $total_income_chart->options['chart_title'] }}
+                        {{ $user->options['chart_title'] }}
                     </h4>
                     <div>
-                        {!! $total_income_chart->renderHtml() !!}
+                        {!! $user->renderHtml() !!}
                     </div>
                 </div>
 
                 <!-- Bars chart -->
                 <div class="h-64 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                     <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        {{ $patients_chart->options['chart_title'] }}
+                        {{ $patient_bar_chart->options['chart_title'] }}
                     </h4>
                     <div>
-                        {!! $patients_chart->renderHtml() !!}
-                    </div>
-                </div>
-
-                <!-- pie chart -->
-                <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        {{ $total_tests_chart->options['chart_title'] }}
-                    </h4>
-                    <div>
-                        {!! $total_tests_chart->renderHtml() !!}
+                        {!! $patient_bar_chart->renderHtml() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @push('scripts')
-        {!! $patients_chart->renderChartJsLibrary() !!}
+        {!! $patient_bar_chart->renderChartJsLibrary() !!}
 
-        {!! $patients_chart->renderJs() !!}
-        {!! $total_income_chart->renderJs() !!}
-        {!! $total_tests_chart->renderJs() !!}
+        {!! $patient_bar_chart->renderJs() !!}
+        {!! $user->renderJs() !!}
     @endpush
 </x-app-layout>
