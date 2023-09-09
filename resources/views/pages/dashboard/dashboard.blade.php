@@ -260,19 +260,19 @@
                 <!-- Bars chart -->
                 <div class="h-64 min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                     <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        {{ $patient_bar_chart->options['chart_title'] }}
+                        {{ $resultOption->options['chart_title'] }}
                     </h4>
                     <div>
-                        {!! $patient_bar_chart->renderHtml() !!}
+                        {!! $resultOption->renderHtml() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @push('scripts')
-        {!! $patient_bar_chart->renderChartJsLibrary() !!}
+        {!! $resultOption->renderChartJsLibrary() !!}
 
-        {!! $patient_bar_chart->renderJs() !!}
+        {!! $resultOption->renderJs() !!}
         {!! $user->renderJs() !!}
     @endpush
 </x-app-layout>
