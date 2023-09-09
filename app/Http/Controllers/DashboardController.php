@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LabService;
 use App\Models\Patient;
 use App\Models\Payment;
+use App\Models\ResultOption;
 use App\Models\TestResult;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -15,12 +16,12 @@ class DashboardController extends Controller
     public function index(): View
     {
         // initialize charts
-        $patient_bar_chart     = new LaravelChart($this->patientBarChart());
-        $user = new LaravelChart($this->user());
+        $resultOption = new LaravelChart($this->resultOptionBarChart());
+        $user              = new LaravelChart($this->user());
 
         $greetings = $this->greetings();
 
-        return view('pages/dashboard/dashboard', compact('greetings', 'patient_bar_chart', 'user'));
+        return view('pages/dashboard/dashboard', compact('greetings', 'resultOption', 'user'));
     }
 
     private function greetings(): string
@@ -40,12 +41,12 @@ class DashboardController extends Controller
     }
 
     // chart to display total number of patients per month
-    private function patientBarChart(): array
+    private function resultOptionBarChart(): array
     {
         return [
-            'chart_title'     => 'Patient by months',
+            'chart_title'     => 'Result Options by months',
             'report_type'     => 'group_by_date',
-            'model'           => Patient::class,
+            'model'           => ResultOption::class,
             'group_by_field'  => 'created_at',
             'group_by_period' => 'month',
             'chart_type'      => 'bar',

@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Allow admin to by-pass all the permissions
         Gate::before(function ($user, $ability) {
-            return $user->hasRole('Admin') ? true : null;
+            return $user->hasRole('Super Admin') ? true : null;
         });
     }
 }

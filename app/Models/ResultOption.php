@@ -21,16 +21,4 @@ class ResultOption extends Model
             ? static::query()
             : static::where('option', 'like', '%' . $query . '%');
     }
-
-    // Get all of the test_requsets for the Patient
-    public function test_requsets(): HasMany
-    {
-        return $this->hasMany(TestRequst::class);
-    }
-
-
-    public function lab_services(): BelongsToMany
-    {
-        return $this->belongsToMany(LabService::class);
-    }
 }
