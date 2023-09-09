@@ -21,7 +21,7 @@ class SuperAdminLoginSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        $admin = Role::create(['name' => 'Admin']);
+        $admin = Role::create(['name' => 'Super Admin']);
         $user->assignRole($admin);
     }
 }
